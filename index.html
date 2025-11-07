@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phantasma's Physics Guide: Momentum</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #fdfdfd;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            border-bottom-width: 4px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.6em;
+            border-bottom-style: dashed;
+            border-bottom-width: 1px;
+            color: #16a085;
+            margin-top: 30px;
+        }
+        h4 {
+            font-size: 1.3em;
+            border-bottom: none;
+            color: #2980b9;
+        }
+        code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 1.1em;
+        }
+        pre {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            font-size: 1.0em;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        strong {
+            color: #c0392b;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Phantasma's Guide to Momentum, Impulse, & Collisions</h1>
+        <p>Alright folks, settle in. Let's talk about momentum, impulse, and collisions.</p>
+        <p>This is, without a doubt, one of the <strong>most important</strong> topics in all of physics. It shows up everywhere, from Paper 1 to Paper 2, and (if you're clever) it can even be the foundation of a great IA. From my engineering days, I can tell you this is what governs... well, <em>everything</em> that moves and hits something else.</p>
+        <p>So, let's get this straight. Here's your review guide. Don't just read it; <em>use</em> it.</p>
+
+        <hr>
+
+        <h2>1. Momentum (p)</h2>
+        <ul>
+            <li><strong>What it is:</strong> Think of it as "inertia in motion." It’s a measure of how much "oomph" a moving object has and, consequently, how hard it is to stop.</li>
+            <li><strong>The Gotcha:</strong> Momentum is a <strong>VECTOR</strong>. It has magnitude <em>and</em> direction. This is the #1 place students lose points. Don't be that student.</li>
+            <li><strong>The Equation:</strong>
+<pre><code>p = mv</code></pre>
+                <ul>
+                    <li><strong>p</strong>: momentum (in kg⋅m/s)</li>
+                    <li><strong>m</strong>: mass (in kg)</li>
+                    <li><strong>v</strong>: velocity (in m/s)</li>
+                </ul>
+            </li>
+            <li><strong>Because it's a vector:</strong> If a 10 kg ball moves right at 5 m/s, its momentum is <code>+50 kg⋅m/s</code>. If an identical ball moves <em>left</em> at 5 m/s, its momentum is <code>-50 kg⋅m/s</code>.</li>
+        </ul>
+
+        <hr>
+
+        <h2>2. Impulse (J)</h2>
+        <ul>
+            <li><strong>What it is:</strong> Impulse is the <strong>change in momentum (Δp)</strong>. To <em>change</em> an object's momentum (e.g., stop it, speed it up, turn it), you have to apply a force over a period of time. That "force-over-time" is the impulse.</li>
+            <li><strong>The Equations (Two sides of the same coin):</strong>
+                <ol>
+                    <li><strong>Impulse as the <em>cause</em>:</strong> <code>J = F_avg ⋅ Δt</code></li>
+                    <li><strong>Impulse as the <em>effect</em>:</strong> <code>J = Δp = p_final - p_initial</code></li>
+                </ol>
+            </li>
+            <li><strong>The Big Link (Impulse-Momentum Theorem):</strong> This is just putting the two equations together. It's incredibly powerful.
+<pre><code>F_avg ⋅ Δt = Δp</code></pre>
+            </li>
+            <li><strong>Real-World Example:</strong> Why do you "follow through" in golf or baseball? To keep the force (F) acting on the ball for the longest possible time (Δt). A bigger (F⋅Δt) gives a bigger impulse (J), which means a bigger change in momentum (Δp), and thus a much higher final velocity for the ball.</li>
+            <li><strong>Graphs:</strong> If you see a <strong>Force vs. Time</strong> graph, the <strong>area under the curve</strong> is the impulse. This is a classic exam question.</li>
+        </ul>
+
+        <hr>
+
+        <h2>3. The Big Boss: Conservation of Linear Momentum</h2>
+        <p>This is the law. This is the one you'll use over and over.</p>
+        <ul>
+            <li><strong>The Law:</strong> In an <strong>isolated system</strong> (meaning no <em>external</em> net forces like friction or air resistance are messing with it), the <strong>total momentum of the system before an interaction is equal to the total momentum of the system after the interaction.</strong></li>
+            <li><strong>The "Magic" Equation:</strong>
+<pre><code>Σp_initial = Σp_final</code></pre>
+            </li>
+            <li><strong>For two objects colliding (A and B):</strong>
+<pre><code>p_A(initial) + p_B(initial) = p_A(final) + p_B(final)
+
+m_A⋅u_A + m_B⋅u_B = m_A⋅v_A + m_B⋅v_B</code></pre>
+                (We often use 'u' for initial velocity and 'v' for final velocity. Get used to it.)
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2>4. Applications: Collisions and Explosions</h2>
+        <p>This is where you <em>apply</em> the conservation law. This breaks down into two types: simple 1-dimensional problems and more complex 2-dimensional problems.</p>
+
+        <h3>A. 1D Collisions and Explosions</h3>
+        <p>This is when everything happens along a single straight line (e.g., "forward/back" or "left/right").</p>
+
+        <h4>Inelastic Collisions:</h4>
+        <ul>
+            <li><strong>Momentum is...</strong> CONSERVED.</li>
+            <li><strong>Kinetic Energy is...</strong> NOT conserved (it's lost to heat, sound, or deforming the objects).</li>
+            <li><strong>Example:</strong> Two blobs of clay hit and stick. A car crash.</li>
+            <li><strong>Perfectly Inelastic:</strong> This is the most extreme case where the objects <strong>stick together</strong> after colliding and move with a single, shared final velocity.</li>
+        </ul>
+
+        <h4>Elastic Collisions:</h4>
+        <ul>
+            <li><strong>Momentum is...</strong> CONSERVED.</li>
+            <li><strong>Kinetic Energy is...</strong> ALSO CONSERVED.</li>
+            <li><strong>Example:</strong> Billiard balls (it's very close). Ideal gas particles.</li>
+            <li><strong>Pro-Tip:</strong> If a problem states the collision is "elastic," it's a huge gift. It means you get <em>two</em> conservation equations to solve for your two unknowns (usually the two final velocities):
+                <ol>
+                    <li><code>Σp_initial = Σp_final</code></li>
+                    <li><code>ΣKE_initial = ΣKE_final</code></li>
+                </ol>
+            </li>
+        </ul>
+
+        <h4>Explosions:</h4>
+        <ul>
+            <li>This is just a collision in reverse. Things start together (often at rest) and fly apart.</li>
+            <li><strong>Example:</strong> A cannon firing a cannonball.
+                <ul>
+                    <li><strong>Before:</strong> The system (cannon + ball) is at rest. <code>p_total(initial) = 0</code>.</li>
+                    <li><strong>After:</strong> The ball moves forward (+p_ball) and the cannon recoils backward (–p_cannon).</li>
+                    <li><strong>By conservation:</strong> <code>p_total(final) = 0</code>, which means <code>(+p_ball) + (–p_cannon) = 0</code>.</li>
+                    <li>This tells you that <code>p_ball = p_cannon</code>. The ball and cannon have <em>equal and opposite momenta</em>. (The ball is fast with low mass; the cannon is slow with high mass).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>B. 2D Collisions (The Component Method)</h3>
+        <p>This is where you <em>really</em> get to show you know what you're doing. The problem is that "oomph" (momentum) doesn't just go forward and back; it can also go sideways.</p>
+
+        <h4>The Core Idea</h4>
+        <p>The most wonderful, beautiful, and (if you're an engineer, <em>essential</em>) truth is this: <strong>Physics in the x-direction is completely independent of physics in the y-direction.</strong></p>
+        <p>This means our one "magic" conservation equation, <code>Σp_initial = Σp_final</code>, is <em>actually</em> two separate, simpler equations:</p>
+        <ol>
+            <li><strong>X-Direction:</strong> <code>Σp_x(initial) = Σp_x(final)</code></li>
+            <li><strong>Y-Direction:</strong> <code>Σp_y(initial) = Σp_y(final)</code></li>
+        </ol>
+
+        <h4>Your Step-by-Step Guide to Not Getting Lost</h4>
+        <p>Follow this process. <em>Every single time.</em></p>
+        <ol>
+            <li>
+                <strong>Draw and Label (The "Before" and "After")</strong>
+                <ul>
+                    <li>Draw your coordinate system (an x-y axis). <strong>Pro-Tip:</strong> Be smart. If one object is moving perfectly horizontally, make that your x-axis. It'll save you a <em>ton</em> of math.</li>
+                    <li>Draw all your objects <em>before</em> they hit. Label their masses (`m_A`, `m_B`) and their initial velocities (`u_A`, `u_B`).</li>
+                    <li>Draw all your objects <em>after</em> they hit. Label their final velocities (`v_A`, `v_B`).</li>
+                    <li><strong>Crucially:</strong> Label any and all angles. These angles <em>must</em> be measured from one of your axes.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Resolve ALL Velocities into Components</strong>
+                <p>This is the step everyone messes up. Any velocity vector <code>v</code> at an angle <code>θ</code> (relative to the x-axis) must be broken down:</p>
+<pre><code>v_x = v ⋅ cos(θ)
+v_y = v ⋅ sin(θ)</code></pre>
+                <p>Do this for <em>every single velocity</em> (`u_A`, `u_B`, `v_A`, `v_B`). Create a table if it helps. Be careful with your signs (e.g., moving left is a negative x-component, moving down is a negative y-component).</p>
+            </li>
+            <li>
+                <strong>Write Your Two Momentum Equations</strong>
+                <p><strong>X-Equation:</strong></p>
+<pre><code>m_A⋅u_Ax + m_B⋅u_Bx = m_A⋅v_Ax + m_B⋅v_Bx</code></pre>
+                <p><strong>Y-Equation:</strong></p>
+<pre><code>m_A⋅u_Ay + m_B⋅u_By = m_A⋅v_Ay + m_B⋅v_By</code></pre>
+            </li>
+            <li>
+                <strong>Solve the System</strong>
+                <p>You now have a system of two algebraic equations. In a typical exam problem, you'll have two unknowns (like the final speed <code>v_A</code> and the final angle <code>θ_A</code>). This is now just a (sometimes messy) math problem.</p>
+            </li>
+        </ol>
+
+        <h4>What About Kinetic Energy in 2D?</h4>
+        <ul>
+            <li><strong>Kinetic Energy (KE) is a SCALAR.</strong> It has no components. It's just a number. It has no direction.</li>
+            <li>You <em>never</em> resolve KE into x and y components. That's nonsense.</li>
+            <li>You use the <em>full speed*</em> (magnitude) of the velocity: <code>KE = ½mv²</code>.</li>
+            <li>To find the full speed from components, use Pythagoras: <code>v² = v_x² + v_y²</code>.</li>
+            <li><strong>If the collision is ELASTIC:</strong> You get a <em>third</em> equation to help you solve:
+<pre><code>ΣKE_initial = ΣKE_final
+½m_A(u_A)² + ½m_B(u_B)² = ½m_A(v_A)² + ½m_B(v_B)²</code></pre>
+            </li>
+            <li><strong>If the collision is INELASTIC:</strong> KE is *not* conserved. You *cannot* use the equation above. Instead, a question will often ask *how much* KE was lost. You just calculate <code>KE_total(initial)</code> and <code>KE_total(final)</code> separately and find the difference.</li>
+        </ul>
+
+        <hr>
+
+        <h2>5. The "Real" Newton's Second Law</h2>
+        <ul>
+            <li><strong>What you learned:</strong> <code>F_net = ma</code></li>
+            <li><strong>What's <em>really</em> true:</strong> Net Force is the <strong>rate of change of momentum.</strong></li>
+            <li><strong>The Equation:</strong>
+<pre><code>F_net = Δp / Δt</code></pre>
+            </li>
+            <li><strong>Hold on, did I lie to you?</strong> Not <em>really</em>. Look:
+                <ul>
+                    <li>If <code>F_net = Δp / Δt</code> and <code>p = mv</code>, then <code>F_net = Δ(mv) / Δt</code>.</li>
+                    <li>For <em>most</em> of your problems, mass is constant. So you can pull it out: <code>F_net = m ⋅ (Δv / Δt)</code>.</li>
+                    <li>And what is <code>Δv / Δt</code>? It's acceleration, <code>a</code>.</li>
+                    <li>So... <code>F_net = ma</code>.</li>
+                </ul>
+            </li>
+            <li><strong>Why it matters:</strong> The IB syllabus specifically notes that <code>F_net = ma</code> <em>assumes mass is constant</em>. The <code>F_net = Δp / Δt</code> form is the <em>true</em> definition and works even when mass is changing (like a rocket burning fuel).</li>
+        </ul>
+
+        <hr>
+
+        <h2>6. Phantasma's Pro-Tips for Not Messing This Up</h2>
+        <ol>
+            <li><strong>VECTORS!</strong> Did I say this? Draw a diagram. Pick a direction as "positive" (e.g., to the right, and up). Any velocity going left or down <em>must</em> be a negative number in your equation.</li>
+            <li><strong>ISOLATE THE SYSTEM.</strong> Be clear about what's <em>inside</em> your system before and after. Momentum is conserved <em>for the system</em>, not necessarily for one object in it.</li>
+            <li><strong>MOMENTUM vs. KINETIC ENERGY.</strong> They are NOT the same.
+                <ul>
+                    <li><strong>Momentum (p = mv)</strong> is conserved in <em>all</em> isolated collisions (1D and 2D).</li>
+                    <li><strong>Kinetic Energy (KE = ½mv²)</strong> is <em>only</em> conserved in <strong>elastic</strong> collisions.</li>
+                </ul>
+            </li>
+            <li><strong>CHECK THE QUESTION.</strong> Does it say "elastic"? "Inelastic"? "Sticks together"? These words are clues that tell you what to do with Kinetic Energy.</li>
+            <li><strong>2D IS JUST TWO 1D PROBLEMS.</strong> Don't panic when you see angles. Just turn it into one "x-problem" and one "y-problem" and solve them. Be meticulous.</li>
+        </ol>
+        <p>That's it. Go do some practice problems. Seriously. Go on.</p>
+    </div>
+
+</body>
+</html>
